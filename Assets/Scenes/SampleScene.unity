@@ -1080,9 +1080,9 @@ GameObject:
   - component: {fileID: 1377450192}
   - component: {fileID: 1377450191}
   - component: {fileID: 1377450190}
+  - component: {fileID: 1377450194}
   - component: {fileID: 1377450196}
   - component: {fileID: 1377450195}
-  - component: {fileID: 1377450194}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1191,6 +1191,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e1f7fb7c67fc1499f19bef00dfbecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewRadius: 8.54
+  viewAngle: 124
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  visibleTargets: []
 --- !u!114 &1377450196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedb55ed35081f84f878ab3f68fac8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 6
 --- !u!1 &1549286607
 GameObject:
   m_ObjectHideFlags: 0
