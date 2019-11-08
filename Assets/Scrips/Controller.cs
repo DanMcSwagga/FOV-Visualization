@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class Controller : MonoBehaviour {
+    public float moveSpeed = 6;
+
+    Rigidbody myRigidbody;
+    Camera viewCamera;
+    Vector3 velocity;
+
+    void Start() {
+        myRigidbody = GetComponent<Rigidbody>();
+        viewCamera = Camera.main;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.y);
+        Vector3 mousePosition = viewCamera.ScreenToWorldPoint(worldPosition);
+
+        transform.LookAt(mousePosition + Vector3.up * transform.position.y);
+        velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
+    }
+
+    void FixedUpdate() {
+        myRigidbody.MovePosition(myRigidbody.position + velocity * Time.fixedDeltaTime);
     }
 }
